@@ -1,0 +1,50 @@
+FOR PRELIM TESTING: run iso file in virtualbox. once linux is setup, follow the code:
+
+CHAPTER ONE
+    1. install necessary software thru linux cli
+
+        a. allow execution as a file (settings)
+
+        COMPILATION SETUP:
+
+        compile assembly file (kernel.asm) thru: nasm -f elf32 kernel.asm -o kasm.o
+        compile kernel: gcc -m32 -c kernel.c -o kc.o
+
+        * .o files are binary files in linux
+
+        linker: ld -m elf_i386 -T link.ld -o kernel.bin kasm.o kc.o
+
+
+        USING QEMU FOR TESTING:
+
+        qemu -kernel kernel.bin
+        qemu should open and boot the OS
+
+
+    2. SHORTCUT: open shell.sh code; thus when u run build.sh, it is automatically the runcode.
+    3. Run terminal again; grub -mkrescue -o adagia.iso adagia/
+    3.x Skippable, i have added it already sa shell file
+    4. virtualbox time: open virtualbox in cli by typing virtualbox
+    5. create a virtual machine: AdagiaOS in virtualbox
+    6. use adagia.iso as image file in virtualbox
+
+    THUS FOR COMPILING:
+    1. click build.sh
+    2. automatically run qemu and iso file is created
+
+
+CHAPTER TWO:
+
+lots of modifications needed for types, system, string, and build inside include
+a lot of the code inputted has been deleted in the final code so worth looking to in case
+errors present themselves
+
+CHAPTER THREE:
+
+by this point of the video, we can execute commands now in the kernel
+kb.h is created and screen.h, string.h is edited.
+
+
+CHAPTER FIVE:
+
+separating cs and h files, lines 3-6 are new entries, edited ang 7th
